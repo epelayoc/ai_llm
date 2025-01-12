@@ -7,9 +7,9 @@ import base64
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 model = genai.GenerativeModel("gemini-1.5-pro-latest")
 
-        ti_NEOTEC = "Convocatoria Neotec 2024 - CERRADA"
-        url_NEOTEC = 'https://www.cdti.es/sites/default/files/2024-04/convocatoria_neotec_2024.pdf'
-        txt_NEOTEC = """
+ti_NEOTEC = "Convocatoria Neotec 2024 - CERRADA"
+url_NEOTEC = 'https://www.cdti.es/sites/default/files/2024-04/convocatoria_neotec_2024.pdf'
+txt_NEOTEC = """
 El programa NEOTEC 2024 apoya la creación y consolidación de empresas de base tecnológica (EBT) con 
 un modelo de negocio basado en el desarrollo de tecnología propia y actividades I+D+i. Ofrece subvenciones 
 de hasta el 70% (o 85% con doctores) del presupuesto, con un máximo de 250.000€ (o 325.000€ con doctores) 
@@ -17,15 +17,15 @@ para pequeñas empresas innovadoras de máximo 3 años, con un capital social de
 de proyecto de 175.000€. Se priman proyectos liderados por mujeres y se financian diversos gastos, incluyendo 
 personal, equipos, y consultoría, siempre y cuando estén relacionados con el proyecto. La convocatoria estuvo abierta del 10 de abril al 10 de mayo de 2024.
 """
-        ti_TRANSMISIONES = "Convocatoria TransMisiones 2024 - CERRADA"
-        url_TRANSMISIONES = "https://www.cdti.es/sites/default/files/2024-05/convocatoria_trans_misiones_2024_firmada.pdf"
-        txt_TRANSMISIONES = """
-        La iniciativa TransMisiones 2024 es una acción que se ejecuta en colaboración entre el CDTI y la AEI, 
-        contemplada en el Plan Estatal de Investigación Científica, Técnica y de Innovación (PEICTI), por la que 
-        se coordina la financiación a agrupaciones de organismos de investigación y de difusión de conocimiento y 
-        agrupaciones de empresas que colaboran para el desarrollo conjunto de una actuación coordinada de I+D, que 
-        dé respuesta a los desafíos identificados en las prioridades temáticas o Misiones.
-        """
+ti_TRANSMISIONES = "Convocatoria TransMisiones 2024 - CERRADA"
+url_TRANSMISIONES = "https://www.cdti.es/sites/default/files/2024-05/convocatoria_trans_misiones_2024_firmada.pdf"
+txt_TRANSMISIONES = """
+La iniciativa TransMisiones 2024 es una acción que se ejecuta en colaboración entre el CDTI y la AEI, 
+contemplada en el Plan Estatal de Investigación Científica, Técnica y de Innovación (PEICTI), por la que 
+se coordina la financiación a agrupaciones de organismos de investigación y de difusión de conocimiento y 
+agrupaciones de empresas que colaboran para el desarrollo conjunto de una actuación coordinada de I+D, que 
+dé respuesta a los desafíos identificados en las prioridades temáticas o Misiones.
+"""
 
 
 @st.cache_resource

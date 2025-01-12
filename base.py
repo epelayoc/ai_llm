@@ -36,7 +36,7 @@ def generate_summary(document_data):
 
 st.title("Conversational Assistant")
 
-pdf_url = 'https://www.horizonteeuropa.es/sites/default/files/noticias/Guía%20del%20participante%20-%20Horizonte%20Europa%20web_0.pdf'
+pdf_url = 'https://www.cdti.es/sites/default/files/2024-11/manual_complementario_especifico_sneo_v.4.0.pdf'
 
 if "messages" not in st.session_state:
     st.session_state.messages = []

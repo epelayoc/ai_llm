@@ -85,7 +85,7 @@ document_data = load_document(pdf_url)
 
 if document_data:
         st.subheader(titulo)
-        st.markdown(f'<a href="{pdf_url}">Enlace al documento oficial de la convocatoria</a>', unsafe_allow_html=True)
+        st.markdown(f'<a href="{pdf_url}">Enlace al documento de la convocatoria</a>', unsafe_allow_html=True)
         st.write(resumen)
         st.markdown('Plantea tus cuestiones a continuacion (ej: `¿Cuales son los potenciales beneficiarios de esta convocatoria?` )')
 

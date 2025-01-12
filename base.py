@@ -75,34 +75,35 @@ convocatorias = {
     'NEOTEC': (ti_NEOTEC, url_NEOTEC,txt_NEOTEC),
     'TRANSMISIONES': (ti_TRANSMISIONES, url_TRANSMISIONES,txt_TRANSMISIONES) }
 
-titulo, pdf_url, resumen = convocatorias[option]
-
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-document_data = load_document(pdf_url)
+# Only proceed if an option has been selected
+if option:
+    titulo, pdf_url, resumen = convocatorias[option]
+    document_data = load_document(pdf_url)
 
-if document_data:
-        st.subheader(titulo)
-        st.markdown(f'<a href="{pdf_url}">Enlace al documento de la convocatoria</a>', unsafe_allow_html=True)
-        st.write(resumen)
-        st.markdown('Plantea tus cuestiones a continuacion (ej: `¿Cuales son los potenciales beneficiarios de esta convocatoria?` )')
+    if document_data:
+            st.subheader(titulo)
+            st.markdown(f'<a href="{pdf_url}">Enlace al documento de la convocatoria</a>', unsafe_allow_html=True)
+            st.write(resumen)
+            st.markdown('Plantea tus cuestiones a continuacion (ej: `¿Cuales son los potenciales beneficiarios de esta convocatoria?` )')
 
-        for message in st.session_state.messages:
-              with st.chat_message(message["role"]):
-                  st.write(message["content"])
+            for message in st.session_state.messages:
+                  with st.chat_message(message["role"]):
+                      st.write(message["content"])
 
-        if prompt := st.chat_input("Pregunta al documento"):
-          st.session_state.messages.append({"role": "user", "content": prompt})
-          with st.chat_message("user"):
-                st.write(prompt)
+            if prompt := st.chat_input("Pregunta al documento"):
+              st.session_state.messages.append({"role": "user", "content": prompt})
+              with st.chat_message("user"):
+                    st.write(prompt)
 
-          with st.chat_message("assistant"):
-                with st.spinner("Pensando..."):
-                    response = generate_response(document_data, prompt)
-                    st.write(response)
-          st.session_state.messages.append({"role": "assistant", "content": response})
+              with st.chat_message("assistant"):
+                    with st.spinner("Pensando..."):
+                        response = generate_response(document_data, prompt)
+                        st.write(response)
+              st.session_state.messages.append({"role": "assistant", "content": response})
 
-else:
-  st.warning("Please enter a PDF URL")
+    else:
+      st.warning("Please enter a PDF URL")

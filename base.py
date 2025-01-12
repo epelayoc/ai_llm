@@ -36,6 +36,12 @@ def generate_summary(document_data):
 
 st.image('https://www.cdti.es/sites/default/files/logo_cdti_2024_con_banderas_soportes_digitales.jpg')
 st.title("Asistente conversacional")
+st.write('Se puede interactúar con el documento de la convocatoria selecciónada haciéndole preguntas.')
+option = st.selectbox(
+    "¿Que convocatoria selecciónas?",
+    ("NEOTEC", "Home phone", "Mobile phone"),
+)
+
 
 pdf_url = 'https://www.cdti.es/sites/default/files/2024-04/convocatoria_neotec_2024.pdf'
 
@@ -48,19 +54,26 @@ if pdf_url:
         #with st.spinner("Generando resumen inicial..."):
         #     summary = generate_summary(document_data)
         st.subheader("Convocatoria Neotec 2024 - CERRADA")
-        resumen = """
+        ti_NEOTEC = "Convocatoria Neotec 2024 - CERRADA"
+        txt_NEOTEC = """
 El programa NEOTEC 2024 apoya la creación y consolidación de empresas de base tecnológica (EBT) con 
 un modelo de negocio basado en el desarrollo de tecnología propia y actividades I+D+i. Ofrece subvenciones 
 de hasta el 70% (o 85% con doctores) del presupuesto, con un máximo de 250.000€ (o 325.000€ con doctores) 
 para pequeñas empresas innovadoras de máximo 3 años, con un capital social de 20.000€ y un presupuesto mínimo 
 de proyecto de 175.000€. Se priman proyectos liderados por mujeres y se financian diversos gastos, incluyendo 
 personal, equipos, y consultoría, siempre y cuando estén relacionados con el proyecto. La convocatoria estuvo abierta del 10 de abril al 10 de mayo de 2024.
-
 """
+        ti_TRANSMISIONES = "Convocatoria TransMisiones 2024 - CERRADA"
+        txt_TRANSMISIONES = """
+        La iniciativa TransMisiones 2024 es una acción que se ejecuta en colaboración entre el CDTI y la AEI, 
+        contemplada en el Plan Estatal de Investigación Científica, Técnica y de Innovación (PEICTI), por la que 
+        se coordina la financiación a agrupaciones de organismos de investigación y de difusión de conocimiento y 
+        agrupaciones de empresas que colaboran para el desarrollo conjunto de una actuación coordinada de I+D, que 
+        dé respuesta a los desafíos identificados en las prioridades temáticas o Misiones.
+        """
         st.write(resumen)
         #st.html("<a href='https://www.cdti.es/sites/default/files/2024-04/convocatoria_neotec_2024.pdf'>link al documento de la pasada convocatoria de 2024</a>")
         st.markdown("<a href='https://www.cdti.es/sites/default/files/2024-04/convocatoria_neotec_2024.pdf'>link al documento de la pasada convocatoria de 2024</a>", unsafe_allow_html=True)
-        st.write('Puedes interactúar con el documento haciéndole preguntas.')
 
         for message in st.session_state.messages:
               with st.chat_message(message["role"]):

@@ -8,7 +8,7 @@ genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 model = genai.GenerativeModel("gemini-1.5-pro-latest")
 
 ti_NEOTEC = "Convocatoria Neotec 2024 - CERRADA"
-url_NEOTEC = 'https://www.cdti.es/sites/default/files/2024-04/convocatoria_neotec_2024.pdf'
+url_NEOTEC = "https://www.cdti.es/sites/default/files/2024-04/convocatoria_neotec_2024.pdf"
 txt_NEOTEC = """
 El programa NEOTEC 2024 apoya la creación y consolidación de empresas de base tecnológica (EBT) con 
 un modelo de negocio basado en el desarrollo de tecnología propia y actividades I+D+i. Ofrece subvenciones 

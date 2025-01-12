@@ -59,7 +59,7 @@ personal, equipos, y consultoría, siempre y cuando estén relacionados con el p
 """
         st.write(resumen)
         #st.html("<a href='https://www.cdti.es/sites/default/files/2024-04/convocatoria_neotec_2024.pdf'>link al documento de la pasada convocatoria de 2024</a>")
-        st.markdown(<a href='https://www.cdti.es/sites/default/files/2024-04/convocatoria_neotec_2024.pdf'>link al documento de la pasada convocatoria de 2024</a>, unsafe_allow_html=True)
+        st.markdown("<a href='https://www.cdti.es/sites/default/files/2024-04/convocatoria_neotec_2024.pdf'>link al documento de la pasada convocatoria de 2024</a>", unsafe_allow_html=True)
         st.write('Puedes interactúar con el documento haciéndole preguntas.')
 
         for message in st.session_state.messages:

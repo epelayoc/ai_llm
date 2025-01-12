@@ -56,7 +56,7 @@ de proyecto de 175.000€. Prioriza proyectos liderados por mujeres y financia g
 La convocatoria fue del 10 de abril al 10 de mayo de 2024.
 """
         st.write(resumen)
-        
+        st.html("<a href='https://www.cdti.es/ayudas/ayudas-neotec-2024'>link al documento</a>")
         st.write('Puedes interactúar con el documento haciéndole preguntas.')
 
         for message in st.session_state.messages:

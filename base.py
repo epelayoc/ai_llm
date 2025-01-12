@@ -35,9 +35,9 @@ def generate_summary(document_data):
       return "Sorry, I couldn't generate a summary."
 
 st.image('https://www.cdti.es/sites/default/files/logo_cdti_2024_con_banderas_soportes_digitales.jpg')
-st.title("Conversational Assistant")
+st.title("Asistente conversacional")
 
-pdf_url = 'https://www.cdti.es/ayudas/ayudas-neotec-2024'
+pdf_url = 'https://www.cdti.es/sites/default/files/2024-04/convocatoria_neotec_2024.pdf'
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -47,7 +47,7 @@ if pdf_url:
     if document_data:
         #with st.spinner("Generando resumen inicial..."):
         #     summary = generate_summary(document_data)
-        st.subheader("Ficha Neotec 2024")
+        st.subheader("Convocatoria Neotec 2024 - CERRADA")
         resumen = """
 NEOTEC 2024 apoya empresas de base tecnológica (EBT) con subvenciones de hasta el 70% (o 85% con doctores), con 
 un máximo de 250.000€ (o 325.000€ con doctores), para proyectos basados en desarrollo tecnológico propio e I+D+i. 

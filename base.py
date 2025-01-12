@@ -24,10 +24,10 @@ def generate_response(document_data, user_question):
       st.error(f"Error generating response: {e}")
       return "Sorry, I couldn't process your request."
 
+pdf_url = st.text_input("Enter PDF URL")
 
 st.title("Conversational PDF Assistant")
 
-pdf_url = st.text_input("Enter PDF URL")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []

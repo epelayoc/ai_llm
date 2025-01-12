@@ -24,11 +24,11 @@ def generate_response(document_data, user_question):
       st.error(f"Error generating response: {e}")
       return "Sorry, I couldn't process your request."
 
-pdf_url = st.text_input("Enter PDF URL")
+code = st.text_input("Enter code")
 
-st.title("Conversational PDF Assistant")
+st.title("Conversational Assistant")
 
-
+pdf_url = 'https://www.horizonteeuropa.es/sites/default/files/noticias/Guía%20del%20participante%20-%20Horizonte%20Europa%20web_0.pdf'
 if "messages" not in st.session_state:
     st.session_state.messages = []
 

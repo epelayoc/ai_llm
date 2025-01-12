@@ -34,6 +34,7 @@ def generate_summary(document_data):
       st.error(f"Error generating summary: {e}")
       return "Sorry, I couldn't generate a summary."
 
+st.image('https://www.cdti.es/sites/default/files/logo_cdti_2024_con_banderas_soportes_digitales.jpg'
 st.title("Conversational Assistant")
 
 pdf_url = 'https://www.cdti.es/ayudas/ayudas-neotec-2024'

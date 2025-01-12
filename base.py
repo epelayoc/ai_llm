@@ -48,8 +48,15 @@ if pdf_url:
         #with st.spinner("Generando resumen inicial..."):
         #     summary = generate_summary(document_data)
         st.subheader("Ficha Neotec 2024")
-        st.write('El programa NEOTEC 2024 NEOTEC 2024 apoya empresas de base tecnológica (EBT) con subvenciones de hasta el 70% (o 85% con doctores), con un máximo de 250.000€ (o 325.000€ con doctores), para proyectos basados en desarrollo tecnológico propio e I+D+i. Dirigido a pequeñas empresas innovadoras de hasta 3 años, con un capital mínimo de 20.000€ y un presupuesto mínimo de proyecto de 175.000€. Prioriza proyectos liderados por mujeres y financia gastos como personal, equipos y consultoría. La convocatoria fue del 10 de abril al 10 de mayo de 2024.
-')
+        resumen = """
+NEOTEC 2024 apoya empresas de base tecnológica (EBT) con subvenciones de hasta el 70% (o 85% con doctores), con 
+un máximo de 250.000€ (o 325.000€ con doctores), para proyectos basados en desarrollo tecnológico propio e I+D+i. 
+Dirigido a pequeñas empresas innovadoras de hasta 3 años, con un capital mínimo de 20.000€ y un presupuesto mínimo 
+de proyecto de 175.000€. Prioriza proyectos liderados por mujeres y financia gastos como personal, equipos y consultoría. 
+La convocatoria fue del 10 de abril al 10 de mayo de 2024.
+"""
+        st.write(resumen)
+        
         st.write('Puedes interactúar con el documento haciéndole preguntas.')
 
         for message in st.session_state.messages:

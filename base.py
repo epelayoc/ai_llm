@@ -7,6 +7,7 @@ import base64
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 model = genai.GenerativeModel("gemini-1.5-pro-latest")
 
+
 @st.cache_resource
 def load_document(pdf_url):
     try:
@@ -24,22 +25,34 @@ def generate_response(document_data, user_question):
       st.error(f"Error generating response: {e}")
       return "Sorry, I couldn't process your request."
 
-code = st.text_input("Enter code")
+def generate_summary(document_data):
+    try:
+        prompt = "Provide a short 4-5 lines summary of this document"
+        response = model.generate_content([{'mime_type':'application/pdf', 'data': document_data}, prompt])
+        return response.text
+    except Exception as e:
+      st.error(f"Error generating summary: {e}")
+      return "Sorry, I couldn't generate a summary."
 
 st.title("Conversational Assistant")
 
 pdf_url = 'https://www.horizonteeuropa.es/sites/default/files/noticias/Guía%20del%20participante%20-%20Horizonte%20Europa%20web_0.pdf'
+
 if "messages" not in st.session_state:
     st.session_state.messages = []
-
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.write(message["content"])
 
 if pdf_url:
     document_data = load_document(pdf_url)
     if document_data:
-      if prompt := st.chat_input("Ask a question about the document"):
+        with st.spinner("Generating initial summary..."):
+             summary = generate_summary(document_data)
+        st.subheader("Document Summary")
+        st.write(summary)
+        for message in st.session_state.messages:
+              with st.chat_message(message["role"]):
+                  st.write(message["content"])
+
+        if prompt := st.chat_input("Ask a question about the document"):
           st.session_state.messages.append({"role": "user", "content": prompt})
           with st.chat_message("user"):
                 st.write(prompt)

@@ -48,6 +48,8 @@ if pdf_url:
              summary = generate_summary(document_data)
         st.subheader("Manual Neotec")
         st.write(summary)
+        st.write('Puedes interactúar con el documento haciéndole preguntas.')
+
         for message in st.session_state.messages:
               with st.chat_message(message["role"]):
                   st.write(message["content"])

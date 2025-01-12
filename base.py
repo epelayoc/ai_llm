@@ -57,9 +57,17 @@ def generate_summary(document_data):
       st.error(f"Error generating summary: {e}")
       return "Sorry, I couldn't generate a summary."
 
+
 st.image('https://www.cdti.es/sites/default/files/logo_cdti_2024_con_banderas_soportes_digitales.jpg')
 st.title("Asistente conversacional")
-st.write('Se puede interactúar con el documento de la convocatoria selecciónada haciéndole preguntas.')
+instrucciones = """
+Esta aplicación te permite chatear sobre convocatorias del CDTI. Primero, selecciona la convocatoria que te interesa de un menú desplegable. 
+Al hacerlo, verás información relevante sobre esa convocatoria y un enlace al documento oficial. A partir de ahí, puedes usar el chat para 
+hacer preguntas específicas sobre la convocatoria y el asistente te dará respuestas basadas en el documento.
+"""
+st.info(instrucciones, icon="ℹ️")
+
+st.write(instrucciones)
 option = st.selectbox(
     "¿Que convocatoria selecciónas?",
     ("NEOTEC", "TRANSMISIONES"),

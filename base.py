@@ -27,7 +27,7 @@ def generate_response(document_data, user_question):
 
 def generate_summary(document_data):
     try:
-        prompt = "Provide a short 4-5 lines summary of this document"
+        prompt = "Proporciona un resumen de 4/5 lineas de este documento. Responde en español"
         response = model.generate_content([{'mime_type':'application/pdf', 'data': document_data}, prompt])
         return response.text
     except Exception as e:
@@ -44,9 +44,9 @@ if "messages" not in st.session_state:
 if pdf_url:
     document_data = load_document(pdf_url)
     if document_data:
-        with st.spinner("Generating initial summary..."):
+        with st.spinner("Generando resumen inicial..."):
              summary = generate_summary(document_data)
-        st.subheader("Document Summary")
+        st.subheader("Manual Neotec")
         st.write(summary)
         for message in st.session_state.messages:
               with st.chat_message(message["role"]):

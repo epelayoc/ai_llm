@@ -49,11 +49,13 @@ if pdf_url:
         #     summary = generate_summary(document_data)
         st.subheader("Convocatoria Neotec 2024 - CERRADA")
         resumen = """
-NEOTEC 2024 apoya empresas de base tecnológica (EBT) con subvenciones de hasta el 70% (o 85% con doctores), con 
-un máximo de 250.000€ (o 325.000€ con doctores), para proyectos basados en desarrollo tecnológico propio e I+D+i. 
-Dirigido a pequeñas empresas innovadoras de hasta 3 años, con un capital mínimo de 20.000€ y un presupuesto mínimo 
-de proyecto de 175.000€. Prioriza proyectos liderados por mujeres y financia gastos como personal, equipos y consultoría. 
-La convocatoria fue del 10 de abril al 10 de mayo de 2024.
+El programa NEOTEC 2024 apoya la creación y consolidación de empresas de base tecnológica (EBT) con 
+un modelo de negocio basado en el desarrollo de tecnología propia y actividades I+D+i. Ofrece subvenciones 
+de hasta el 70% (o 85% con doctores) del presupuesto, con un máximo de 250.000€ (o 325.000€ con doctores) 
+para pequeñas empresas innovadoras de máximo 3 años, con un capital social de 20.000€ y un presupuesto mínimo 
+de proyecto de 175.000€. Se priman proyectos liderados por mujeres y se financian diversos gastos, incluyendo 
+personal, equipos, y consultoría, siempre y cuando estén relacionados con el proyecto. La convocatoria estuvo abierta del 10 de abril al 10 de mayo de 2024.
+
 """
         st.write(resumen)
         st.html("<a href='https://www.cdti.es/sites/default/files/2024-04/convocatoria_neotec_2024.pdf'>link al documento de la pasada convocatoria de 2024</a>")

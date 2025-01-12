@@ -59,7 +59,7 @@ def generate_summary(document_data):
 
 
 st.image('https://www.cdti.es/sites/default/files/logo_cdti_2024_con_banderas_soportes_digitales.jpg')
-st.title("Asistente conversacional")
+st.title("Asistente conversacional CDTI")
 instrucciones = """
 Esta aplicación te permite chatear sobre convocatorias del CDTI. Primero, selecciona la convocatoria que te interesa de un menú desplegable. 
 Al hacerlo, verás información relevante sobre esa convocatoria y un enlace al documento oficial. A partir de ahí, puedes usar el chat para 
@@ -67,7 +67,6 @@ hacer preguntas específicas sobre la convocatoria y el asistente te dará respu
 """
 st.info(instrucciones, icon="ℹ️")
 
-st.write(instrucciones)
 option = st.selectbox(
     "¿Que convocatoria selecciónas?",
     ("NEOTEC", "TRANSMISIONES"),

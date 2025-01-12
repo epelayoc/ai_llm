@@ -87,6 +87,7 @@ if document_data:
         st.subheader(titulo)
         st.write(resumen)
         st.markdown(f'<a href="{pdf_url}">link al documento de la convocatoria</a>', unsafe_allow_html=True)
+        st.write('Plantea tus cuestiones a continuacion')
 
         for message in st.session_state.messages:
               with st.chat_message(message["role"]):

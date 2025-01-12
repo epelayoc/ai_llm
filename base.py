@@ -30,12 +30,15 @@ dé respuesta a los desafíos identificados en las prioridades temáticas o Misi
 
 @st.cache_resource
 def load_document(pdf_url):
+  if pdf_url:
     try:
       doc_data = base64.standard_b64encode(httpx.get(pdf_url).content).decode("utf-8")
       return doc_data
     except Exception as e:
       st.error(f"Error loading document: {e}")
       return None
+  else:
+    return None
 
 def generate_response(document_data, user_question):
     try:
@@ -62,24 +65,20 @@ option = st.selectbox(
     ("NEOTEC", "TRANSMISIONES"),
 )
 convocatorias = {
-    'NEOTEC': ('tit_NEOTEC', 'url_NEOTEC','txt_NEOTEC'),
-    'TRANSMISIONES': ('tit_TRANSMISIONES', 'url_TRANSMISIONES','txt_TRANSMISIONES') }
+    'NEOTEC': (ti_NEOTEC, url_NEOTEC,txt_NEOTEC),
+    'TRANSMISIONES': (ti_TRANSMISIONES, url_TRANSMISIONES,txt_TRANSMISIONES) }
 
-(titulo, pdf_url, resumen) = convocatorias[option]
+titulo, pdf_url, resumen = convocatorias[option]
 
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-if pdf_url:
-    document_data = load_document(pdf_url)
-    if document_data:
-        #with st.spinner("Generando resumen inicial..."):
-        #     summary = generate_summary(document_data)
-        st.subheader(titulo)
+document_data = load_document(pdf_url)
 
+if document_data:
+        st.subheader(titulo)
         st.write(resumen)
-        #st.html("<a href='https://www.cdti.es/sites/default/files/2024-04/convocatoria_neotec_2024.pdf'>link al documento de la pasada convocatoria de 2024</a>")
         st.markdown(f'<a href="{pdf_url}">link al documento de la convocatoria</a>', unsafe_allow_html=True)
 
         for message in st.session_state.messages:

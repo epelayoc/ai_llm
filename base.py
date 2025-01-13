@@ -58,7 +58,8 @@ def generate_summary(document_data):
       return "Sorry, I couldn't generate a summary."
 
 
-st.image('https://www.cdti.es/sites/default/files/logo_cdti_2024_con_banderas_soportes_digitales.jpg')
+#st.image('https://www.cdti.es/sites/default/files/logo_cdti_2024_con_banderas_soportes_digitales.jpg')
+st.image('https://www.notion.so/images/page-cover/nasa_tim_peake_spacewalk.jpg')
 st.title("Asistente conversacional CDTI")
 instrucciones = """
 Esta aplicación te permite chatear sobre convocatorias del CDTI. Primero, selecciona la convocatoria que te interesa de un menú desplegable. 

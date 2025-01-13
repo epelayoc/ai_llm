@@ -65,7 +65,7 @@ def generate_summary(document_data):
 st.image('https://www.notion.so/images/page-cover/nasa_tim_peake_spacewalk.jpg')
 st.title("Asistente conversacional")
 instrucciones = """
-Esta aplicación te permite chatear sobre convocatorias del CDTI. Primero, selecciona la convocatoria que te interesa de un menú desplegable. 
+Esta aplicación te permite chatear sobre convocatorias del CDTI. Primero, selecciona tu idioma y la convocatoria que te interesa de un menú desplegable. 
 Al hacerlo, verás información relevante sobre esa convocatoria y un enlace al documento oficial. A partir de ahí, puedes usar el chat para 
 hacer preguntas específicas sobre la convocatoria y el asistente te dará respuestas basadas en el documento.
 """

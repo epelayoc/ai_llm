@@ -72,7 +72,7 @@ hacer preguntas específicas sobre la convocatoria y el asistente te dará respu
 st.info(instrucciones, icon="ℹ️")
 idioma = st.radio(
     "Selecciona tu idioma",
-    ["Español", "Engles", "Catalan"],
+    ["Español", "Inglés", "Catalan"],
 )
 
 option = st.selectbox(

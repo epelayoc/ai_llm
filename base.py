@@ -7,6 +7,8 @@ import base64
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 model = genai.GenerativeModel("gemini-1.5-pro-latest")
 
+idioma = 'español'
+
 ti_NEOTEC = "Convocatoria Neotec 2024 - CERRADA"
 url_NEOTEC = "https://www.cdti.es/sites/default/files/2024-04/convocatoria_neotec_2024.pdf"
 txt_NEOTEC = """
@@ -42,6 +44,7 @@ def load_document(pdf_url):
 
 def generate_response(document_data, user_question):
     try:
+        user_question = user_question + ".Responde en " + idioma
         response = model.generate_content([{'mime_type':'application/pdf', 'data': document_data}, user_question])
         return response.text
     except Exception as e:
@@ -67,6 +70,10 @@ Al hacerlo, verás información relevante sobre esa convocatoria y un enlace al 
 hacer preguntas específicas sobre la convocatoria y el asistente te dará respuestas basadas en el documento.
 """
 st.info(instrucciones, icon="ℹ️")
+idioma = st.radio(
+    "Selecciona tu idioma",
+    ["Español", "Engles", "Catalan"],
+)
 
 option = st.selectbox(
     "¿Que convocatoria selecciónas?",
